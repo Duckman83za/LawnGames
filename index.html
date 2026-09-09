@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lawn Game Rentals Pretoria and Johannesburg | Giant Lawn Games for Events</title>
+<meta name="description" content="Rent premium oversized lawn games, giant 4-in-a-row, cornhole, croquet and more for weddings, parties, and corporate events across Pretoria, Johannesburg, and Gauteng.">
+<meta name="theme-color" content="#1B3A22">
+<link rel="canonical" href="https://www.lawngamerentals.co.za/">
+<link rel="icon" href="images/logolgrw.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/logolgrw.svg">
+
+<!-- Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lawn Game Rentals">
+<meta property="og:title" content="Lawn Game Rentals Pretoria &amp; Johannesburg | Giant Lawn Games for Events">
+<meta property="og:description" content="Premium oversized lawn games for weddings, milestone celebrations, and corporate gatherings across Pretoria, Johannesburg, and Gauteng.">
+<meta property="og:url" content="https://www.lawngamerentals.co.za/">
+<meta property="og:image" content="https://www.lawngamerentals.co.za/images/bg_4.jpg">
+<meta property="og:image:alt" content="Giant lawn games set up on a green lawn for an event">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Google Fonts for High-End Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* --- RESET --- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, h1, h2, h3, h4, p, ul, li, figure, form { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  img, svg { display: block; max-width: 100%; }
+  button, input, textarea { font: inherit; }
+
+  :root {
+    --primary-dark: #121F17;
+    --forest-green: #1B3A22;
+    --sage-accent: #2C4035;
+    --gold-accent: #C5A059;
+    --gold-hover: #D4AF37;
+    --soft-grey: #EEEEEE;
+    --light-bg: #F4F6F4;
+    --white: #FFFFFF;
+    --text-main: #2C2C2C;
+    --text-muted: #666666;
+    --header-h: 76px;
+    --gutter: clamp(16px, 4vw, 48px);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Fallback for browsers that honour scroll-padding but not scroll-margin */
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-main);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* Anchor targets clear the sticky header */
+  section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+  :focus-visible {
+    outline: 3px solid var(--gold-hover);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 8px;
+    top: -60px;
+    z-index: 2000;
+    background: var(--gold-accent);
+    color: var(--primary-dark);
+    padding: 10px 18px;
+    border-radius: 0 0 6px 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 0; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* --- HEADER & NAVIGATION --- */
+  header {
+    background-color: var(--forest-green);
+    color: var(--white);
+    padding: 0.7rem var(--gutter);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(197, 125, 50, 0.5);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .brand img { height: 46px; width: auto; }
+
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+  }
+
+  nav ul {
+    display: flex;
+    gap: clamp(16px, 2.4vw, 50px);
+    align-items: center;
+  }
+
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: clamp(0.95rem, 1.25vw, 1.3rem);
+    font-weight: 400;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  nav a:hover { color: var(--gold-accent); }
+
+  nav a[aria-current="true"] {
+    color: var(--gold-accent);
+    border-bottom: 2px solid var(--gold-accent);
+  }
+
+  .nav-cta {
+    background-color: var(--gold-accent);
+    color: var(--primary-dark) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    transition: background 0.3s ease;
+  }
+
+  .nav-cta:hover { background-color: var(--gold-hover); }
+  .nav-cta[aria-current="true"] { border-bottom: 0; }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 6px;
+    color: var(--white);
+    width: 46px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    position: relative;
+    transition: background 0.2s ease;
+  }
+
+  .nav-toggle .bar::before,
+  .nav-toggle .bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease, top 0.25s ease;
+  }
+
+  .nav-toggle .bar::before { top: -7px; }
+  .nav-toggle .bar::after  { top: 7px; }
+
+  .nav-toggle[aria-expanded="true"] .bar { background: transparent; }
+  .nav-toggle[aria-expanded="true"] .bar::before { top: 0; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .bar::after  { top: 0; transform: rotate(-45deg); }
+
+  /* --- HERO SECTION --- */
+  .hero {
+    /* Older browsers take the first declaration; those that understand
+       image-set() take the second and get the WebP. */
+    background: linear-gradient(to bottom, rgba(27, 42, 34, 0) 40%, rgba(27, 42, 34, 0.9) 100%),
+                url('images/bg_4.jpg') no-repeat center center/cover;
+    background: linear-gradient(to bottom, rgba(27, 42, 34, 0) 40%, rgba(27, 42, 34, 0.9) 100%),
+                image-set(url('images/bg_4.webp') type('image/webp'),
+                          url('images/bg_4.jpg') type('image/jpeg')) no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: clamp(24px, 5vw, 40px) 20px clamp(36px, 5vw, 48px);
+  }
+
+  .hero-logo {
+    width: min(430px, 74vw);
+    height: auto;
+    /* The logo art has built-in whitespace; pull the heading up only where
+       there is room for it to overlap without colliding. */
+    margin: 0 auto;
+  }
+
+  @media (min-width: 900px) {
+    .hero-logo { margin-bottom: -34px; }
+  }
+
+  .hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.6rem, 8.5vw, 5rem);
+    line-height: 1.15;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    font-weight: normal;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2.4vw, 1.15rem);
+    max-width: 700px;
+    margin: 0 auto 35px auto;
+    font-weight: 400;
+    color: #F0F4F1;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--gold-accent);
+    color: var(--primary-dark);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .btn:hover {
+    background-color: var(--gold-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--gold-accent);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--gold-accent);
+    color: var(--primary-dark);
+  }
+
+  /* --- CONTAINER & SECTIONS --- */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(36px, 6vw, 60px) clamp(18px, 4vw, 30px);
+  }
+
+  section { border-bottom: 1px solid #E0E5E0; }
+
+  .section-title {
+    text-align: center;
+    font-size: clamp(2rem, 5.5vw, 3.2rem);
+    line-height: 1.15;
+    color: var(--forest-green);
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: clamp(30px, 5vw, 50px);
+    font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+  }
+
+  /* --- ABOUT / HIGHLIGHTS --- */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(24px, 4vw, 50px);
+  }
+
+  .highlight-card {
+    background: var(--white);
+    padding: clamp(28px, 4vw, 40px) clamp(20px, 3vw, 30px);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    text-align: center;
+    border-top: 3px solid var(--gold-accent);
+  }
+
+  .highlight-card h3 {
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+    margin-bottom: 15px;
+    color: var(--forest-green);
+  }
+
+  /* --- GAMES CATALOG --- */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: clamp(24px, 4vw, 50px);
+  }
+
+  .game-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 5px rgba(2,2,2,0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .game-img-placeholder {
+    width: 100%;
+    height: 220px;
+    background-color: #E2E8E4;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* <picture> is inline by default, which would break the img's height:100%. */
+  .game-img-placeholder picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .game-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .game-img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(18,31,23,0.18) 0%, rgba(18,31,23,0) 45%);
+    pointer-events: none;
+  }
+
+  .size-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    background: var(--white);
+    color: var(--forest-green);
+    padding: 5px 14px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .game-content {
+    padding: 20px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .game-content h3 {
+    font-size: clamp(1.6rem, 4vw, 1.9rem);
+    color: var(--forest-green);
+    margin-bottom: 5px;
+  }
+
+  .game-price {
+    color: #96762F;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .game-content p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .game-includes {
+    font-size: 0.85rem;
+    background: var(--soft-grey);
+    color: #5A5A5A;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1.5px dotted darkgoldenrod;
+    margin-top: auto;
+  }
+
+  /* --- PACKAGES SECTION --- */
+  .packages-grid {
+    display: grid;
+    /* Sized so all four options fit one row inside the 1200px container. */
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: clamp(20px, 2.5vw, 32px);
+  }
+
+  .package-card {
+    background: var(--white);
+    border: 1px solid #083E04;
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .package-card:hover,
+  .package-card:focus-within {
+    border-color: var(--gold-accent);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .package-card h3 {
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+    color: var(--forest-green);
+    margin-bottom: 5px;
+  }
+
+  .package-price {
+    font-size: 1.6rem;
+    color: #96762F;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .package-card ul {
+    margin-bottom: 20px;
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .package-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .package-bonus {
+    background: #EEEEEE;
+    border: 1px dashed var(--gold-accent);
+    padding: 10px;
+    font-size: 0.95rem;
+    color: var(--forest-green);
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* --- DESIGN SERVICES SECTION --- */
+  .design-section {
+    background-color: var(--forest-green);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .design-section .section-title { color: var(--gold-accent); }
+  .design-section .section-subtitle { color: #C8D6CE; }
+
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(24px, 4vw, 60px);
+    text-align: left;
+  }
+
+  .design-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(197, 160, 89, 0.2);
+    padding: clamp(22px, 3vw, 30px);
+    border-radius: 15px;
+  }
+
+  .design-box h3 {
+    color: var(--gold-accent);
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+    margin-bottom: 10px;
+  }
+
+  .design-box p {
+    color: #D1D8D4;
+    font-size: 0.95rem;
+  }
+
+  /* --- INFO & TERMS --- */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(32px, 6vw, 90px);
+  }
+
+  .info-box h3 {
+    color: var(--forest-green);
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+    margin-bottom: 25px;
+  }
+
+  .info-box p + p { margin-top: 18px; }
+
+  .table-scroll { overflow-x: auto; }
+
+  .delivery-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+  }
+
+  .delivery-table th, .delivery-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #E0E5E0;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .delivery-table th { color: var(--forest-green); }
+
+  /* --- CONTACT SECTION --- */
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1.6fr;
+    background: var(--white);
+    border-radius: 25px;
+    box-shadow: 0 5px 5px rgba(5,5,5,0.20);
+    overflow: hidden;
+  }
+
+  .contact-info-side {
+    background: var(--forest-green);
+    color: var(--white);
+    padding: clamp(32px, 5vw, 60px) clamp(24px, 4vw, 50px);
+  }
+
+  .contact-info-side h3 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    margin-bottom: 20px;
+    color: var(--gold-accent);
+  }
+
+  .contact-info-side p {
+    margin-bottom: 30px;
+    color: #D1D8D4;
+  }
+
+  .contact-details-list li {
+    margin-bottom: 22px;
+    font-size: 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .contact-details-list a {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(197, 160, 89, 0.7);
+    word-break: break-word;
+  }
+
+  .contact-details-list a:hover { color: var(--gold-accent); }
+
+  .whatsapp-cta {
+    display: inline-block;
+    margin-top: 8px;
+    background: #25D366;
+    color: #06331A;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .whatsapp-cta:hover { background: #1FB855; }
+
+  .contact-form-side { padding: clamp(28px, 5vw, 70px); }
+
+  .form-group { margin-bottom: 15px; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--forest-green);
+  }
+
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CCC;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--text-main);
+  }
+
+  .form-group textarea {
+    height: 110px;
+    resize: vertical;
+  }
+
+  .form-submit {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .form-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .form-status {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--forest-green);
+    text-align: center;
+    min-height: 1.2em;
+  }
+
+  .form-status.is-error { color: #A62B1F; }
+
+  .form-status.is-success {
+    background: #EAF3EC;
+    border: 1px solid var(--forest-green);
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .form-submit[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  /* Honeypot: off-screen rather than display:none, which some bots skip. */
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    background: #1B3A22;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 36px 20px;
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 22px;
+    margin-bottom: 18px;
+  }
+
+  .footer-links a {
+    color: #D1D8D4;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover { color: var(--gold-accent); }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 1024px) {
+    .nav-toggle { display: inline-flex; }
+
+    #primary-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--forest-green);
+      border-top: 1px solid rgba(197, 160, 89, 0.3);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.28);
+      max-height: calc(100vh - var(--header-h));
+      overflow-y: auto;
+      display: none;
+    }
+
+    #primary-nav.is-open { display: block; }
+
+    #primary-nav ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 6px 0 18px;
+    }
+
+    #primary-nav li { border-bottom: 1px solid rgba(255,255,255,0.09); }
+    #primary-nav li:last-child { border-bottom: 0; }
+
+    #primary-nav a {
+      display: block;
+      padding: 15px var(--gutter);
+      font-size: 1.05rem;
+    }
+
+    #primary-nav a[aria-current="true"] {
+      border-bottom: 0;
+      background: rgba(197, 160, 89, 0.12);
+    }
+
+    #primary-nav .nav-cta {
+      margin: 14px var(--gutter) 0;
+      text-align: center;
+      border-radius: 6px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-container { grid-template-columns: 1fr; }
+    .hero-actions .btn { flex: 1 1 220px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .btn:hover, .package-card:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header>
+    <a class="brand" href="#home" aria-label="Lawn Game Rentals — home">
+      <img src="images/logolgrw.svg" alt="" width="46" height="46">
+      <span class="brand-name">Lawn Game<br>Rentals</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <nav id="primary-nav" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#games">The Games</a></li>
+        <li><a href="#packages">Event Packages</a></li>
+        <li><a href="#design">Design Services</a></li>
+        <li><a href="#info">Guidelines</a></li>
+        <li><a href="#contact" class="nav-cta">Book Online</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <img class="hero-logo" src="images/logolgrw.svg" alt="Lawn Game Rentals Pretoria logo" width="430" height="430" fetchpriority="high">
+    <h1>Elevate Your Next Event</h1>
+    <p>Premium oversized lawn games for weddings, milestone celebrations, and corporate gatherings across Pretoria, Johannesburg, and Gauteng.</p>
+    <div class="hero-actions">
+      <a href="#games" class="btn">Explore Our Games</a>
+      <a href="#packages" class="btn btn-outline">View Packages</a>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">A Touch of Elegance &amp; Entertainment</h2>
+      <p class="section-subtitle">We bring people together through beautifully crafted, classic outdoor entertainment in Gauteng.</p>
+
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <h3>Curated Quality</h3>
+          <p>Hand-crafted and meticulously maintained large wooden and metal lawn games that complement upscale event settings.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Seamless Delivery</h3>
+          <p>Professional drop-off and collection services across Pretoria, Johannesburg, Centurion, and surrounding regional areas.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Complimentary Design</h3>
+          <p>Every combo package automatically includes a free custom WhatsApp invitation tailored to your theme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMES CATALOG -->
+  <section id="games" style="background-color: #FFFFFF;">
+    <div class="container">
+      <h2 class="section-title">Rental Games Catalog</h2>
+      <p class="section-subtitle">Choose individual lawn games or mix and match for your guest entertainment.</p>
+
+      <div class="games-grid">
+
+        <!-- Game 1: Boules -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Medium (M)</span>
+            <picture>
+              <source srcset="images/boules_1.webp" type="image/webp">
+              <img src="images/boules_1.png" alt="Boules steel balls lawn game rental" width="800" height="501" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Boules</h3>
+            <div class="game-price">R250 + R250 Deposit</div>
+            <p>Played between two teams, participants throw or roll steel balls as close as possible to the target jack.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry bag with 8 patterned steel balls, jack, and measuring string.</div>
+          </div>
+        </div>
+
+        <!-- Game 2: Cornhole -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Medium (M)</span>
+            <picture>
+              <source srcset="images/cornhole_2.webp" type="image/webp">
+              <img src="images/cornhole_2.png" alt="Cornhole board bean bag lawn game rental" width="800" height="515" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Cornhole</h3>
+            <div class="game-price">R250 + R250 Deposit</div>
+            <p>Classic lawn game where players alternate throwing bean bags toward a raised platform with a target hole.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry case, 2 boards, and 2 sets of bean bags (4 per color).</div>
+          </div>
+        </div>
+
+        <!-- Game 3: Croquet -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Big (B)</span>
+            <picture>
+              <source srcset="images/croquet_3.webp" type="image/webp">
+              <img src="images/croquet_3.png" alt="Croquet lawn game set rental" width="800" height="521" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Croquet</h3>
+            <div class="game-price">R450 + R450 Deposit</div>
+            <p>A traditional sport involving hitting wooden balls through hoops embedded in a lawn court.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry bag with 6 hoops, 4 wooden mallets, 4 balls, and booklet.</div>
+          </div>
+        </div>
+
+        <!-- Game 4: Giant 4 in a Row -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Medium (M)</span>
+            <picture>
+              <source srcset="images/giant4inarow_4.webp" type="image/webp">
+              <img src="images/giant4inarow_4.png" alt="Giant 4 in a Row connection game rental" width="800" height="507" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Giant 4 in a Row</h3>
+            <div class="game-price">R250 + R250 Deposit</div>
+            <p>Two-player connection game to form a horizontal, vertical, or diagonal line of four chips.</p>
+            <div class="game-includes"><strong>Includes:</strong> Freestanding wooden board with 48 colored chips and setup guide.</div>
+          </div>
+        </div>
+
+        <!-- Game 5: Giant Dominoes -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Medium (M)</span>
+            <picture>
+              <source srcset="images/giantdominoes_5.webp" type="image/webp">
+              <img src="images/giantdominoes_5.png" alt="Giant wooden dominoes rental" width="800" height="614" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Giant Dominoes</h3>
+            <div class="game-price">R250 + R250 Deposit</div>
+            <p>Traditional domino rules scaled up for group outdoor play and team matches.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry case with 28 oversized wooden dominoes.</div>
+          </div>
+        </div>
+
+        <!-- Game 6: Giant Pick-up Sticks -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Small (S)</span>
+            <picture>
+              <source srcset="images/giantpickupsticks_6.webp" type="image/webp">
+              <img src="images/giantpickupsticks_6.png" alt="Giant pick-up sticks lawn game" width="800" height="492" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Giant Pick-up Sticks</h3>
+            <div class="game-price">R150 + R150 Deposit</div>
+            <p>Test of physical dexterity and focus to remove sticks from a random pile without disturbance.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry bag with 30 colorful wooden pick-up sticks.</div>
+          </div>
+        </div>
+
+        <!-- Game 7: High Tower -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Big (B)</span>
+            <picture>
+              <source srcset="images/hightower_7.webp" type="image/webp">
+              <img src="images/hightower_7.png" alt="High Tower wooden stacking game rental" width="800" height="542" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>High Tower</h3>
+            <div class="game-price">R450 + R450 Deposit</div>
+            <p>A game of structural balance where players take turns pulling blocks to build an unstable tower.</p>
+            <div class="game-includes"><strong>Includes:</strong> Convertible carry case/stand with 48 wooden blocks.</div>
+          </div>
+        </div>
+
+        <!-- Game 8: Horseshoe Throwing -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Small (S)</span>
+            <picture>
+              <source srcset="images/horseshoetrow_8.webp" type="image/webp">
+              <img src="images/horseshoetrow_8.png" alt="Horseshoe throwing target sport rental" width="800" height="555" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Horseshoe Throwing</h3>
+            <div class="game-price">R150 + R150 Deposit</div>
+            <p>Outdoor target sport played between two people pitching horseshoes toward ground stakes.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry bag, 4 horseshoes, 2 rubber mats, and 4 stakes.</div>
+          </div>
+        </div>
+
+        <!-- Game 9: Lawn Darts -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Small (S)</span>
+            <picture>
+              <source srcset="images/lawndarts_9.webp" type="image/webp">
+              <img src="images/lawndarts_9.png" alt="Lawn Darts outdoor game rental" width="800" height="569" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Lawn Darts</h3>
+            <div class="game-price">R150 + R150 Deposit</div>
+            <p>Aerodynamically stable darts thrown over a distance into target rings to score points.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry case with 4 lawn darts and 3 scoring rings.</div>
+          </div>
+        </div>
+
+        <!-- Game 10: Noughts and Crosses -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Small (S)</span>
+            <picture>
+              <source srcset="images/noughtsandcrosses_10.webp" type="image/webp">
+              <img src="images/noughtsandcrosses_10.png" alt="Noughts and Crosses tic-tac-toe lawn game" width="800" height="489" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Noughts and Crosses</h3>
+            <div class="game-price">R150 + R150 Deposit</div>
+            <p>Classic Tic-Tac-Toe played on a large modular rope grid layout.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry bag featuring 5 noughts, 5 crosses, and rope grid.</div>
+          </div>
+        </div>
+
+        <!-- Game 11: Quoits -->
+        <div class="game-card">
+          <div class="game-img-placeholder">
+            <span class="size-tag">Small (S)</span>
+            <picture>
+              <source srcset="images/quoits_11.webp" type="image/webp">
+              <img src="images/quoits_11.png" alt="Quoits ring tossing game rental" width="800" height="611" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="game-content">
+            <h3>Quoits</h3>
+            <div class="game-price">R150 + R150 Deposit</div>
+            <p>Traditional target game tossing rope rings over numbered scoring poles.</p>
+            <div class="game-includes"><strong>Includes:</strong> Carry case, 4 rope rings, wooden base halves, and 5 poles.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES SECTION -->
+  <section id="packages">
+    <div class="container">
+      <h2 class="section-title">Event Packages</h2>
+      <p class="section-subtitle">Maximize your entertainment value with our bundled lawn game selections.</p>
+
+      <div class="packages-grid">
+
+        <!-- Option 1 -->
+        <div class="package-card">
+          <h3>Option 1</h3>
+          <div class="package-price">R1550 <br><span style="font-size:0.9rem; color:#666;">+ R1550 Deposit</span></div>
+          <div class="package-bonus"><span aria-hidden="true">🎁</span> Includes Free WhatsApp Invite</div>
+          <ul>
+            <li>Any 2 Available Big Games</li>
+            <li>Any 2 Available Medium Games</li>
+            <li>Any 2 Available Small Games</li>
+          </ul>
+          <a href="#contact" class="btn" data-package="Option 1 (R1550)">Select Package</a>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="package-card">
+          <h3>Option 2</h3>
+          <div class="package-price">R1350 <br><span style="font-size:0.9rem; color:#666;">+ R1350 Deposit</span></div>
+          <div class="package-bonus"><span aria-hidden="true">🎁</span> Includes Free WhatsApp Invite</div>
+          <ul>
+            <li>Any 2 Available Big Games</li>
+            <li>Any 2 Available Medium Games</li>
+            <li>Any 1 Available Small Game</li>
+          </ul>
+          <a href="#contact" class="btn" data-package="Option 2 (R1350)">Select Package</a>
+        </div>
+
+        <!-- Option 3 -->
+        <div class="package-card">
+          <h3>Option 3</h3>
+          <div class="package-price">R1000 <br><span style="font-size:0.9rem; color:#666;">+ R1000 Deposit</span></div>
+          <div class="package-bonus"><span aria-hidden="true">🎁</span> Includes Free WhatsApp Invite</div>
+          <ul>
+            <li>Any 1 Available Big Game</li>
+            <li>Any 2 Available Medium Games</li>
+            <li>Any 2 Available Small Games</li>
+          </ul>
+          <a href="#contact" class="btn" data-package="Option 3 (R1000)">Select Package</a>
+        </div>
+
+        <!-- Option 4 -->
+        <div class="package-card">
+          <h3>Option 4</h3>
+          <div class="package-price">R800 <br><span style="font-size:0.9rem; color:#666;">+ R800 Deposit</span></div>
+          <div class="package-bonus"><span aria-hidden="true">🎁</span> Includes Free WhatsApp Invite</div>
+          <ul>
+            <li>Any 1 Available Big Game</li>
+            <li>Any 1 Available Medium Game</li>
+            <li>Any 1 Available Small Game</li>
+          </ul>
+          <a href="#contact" class="btn" data-package="Option 4 (R800)">Select Package</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SERVICES SECTION -->
+  <section id="design" class="design-section">
+    <div class="container">
+      <h2 class="section-title">Event Design Services</h2>
+      <p class="section-subtitle">Cohesive design solutions to bring your entire event aesthetic to life.</p>
+
+      <div class="design-grid">
+        <div class="design-box">
+          <h3>Digital Invitations</h3>
+          <p>Modern, elegantly styled digital invitations tailored to your theme. <strong>Remember:</strong> This service is included completely free when you book any combo package!</p>
+        </div>
+        <div class="design-box">
+          <h3>Event Programmes</h3>
+          <p>Professionally formatted ceremony layouts, itineraries, and printed booklets designed to match your celebration's motif.</p>
+        </div>
+        <div class="design-box">
+          <h3>Signage &amp; Stationery</h3>
+          <p>Custom welcome boards, seating charts, menu layouts, and table markers available upon request for any function.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDELINES & TERMS -->
+  <section id="info">
+    <div class="container">
+      <h2 class="section-title">Rental Guidelines &amp; Info</h2>
+      <p class="section-subtitle">Everything you need to know about deposits, collections, and delivery.</p>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Responsibility &amp; Deposits</h3>
+          <p><strong>Responsibility:</strong> A valid copy of the responsible party's ID and a signed indemnity form are required prior to the release of any equipment.</p>
+          <p><strong>Security Deposits:</strong> Fully refundable directly into your designated bank account following prompt inspection of returned equipment in good condition.</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Deliveries &amp; Collection</h3>
+          <p>Equipment can be collected or delivered the day before your function and returned or collected the day after your event.</p>
+
+          <div class="table-scroll">
+            <table class="delivery-table">
+              <caption class="visually-hidden">Delivery fees by region</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Region</th>
+                  <th scope="col">Delivery Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pretoria</td>
+                  <td>R200</td>
+                </tr>
+                <tr>
+                  <td>Johannesburg</td>
+                  <td>R300</td>
+                </tr>
+                <tr>
+                  <td>Surrounding Areas</td>
+                  <td>R500</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.85rem; margin-top: 10px; color: var(--text-muted);">* <strong>Couriering options are available upon request at standard courier rates.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" style="background-color: #FFFFFF;">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Ready to book or have questions? Contact us directly or fill out the enquiry form below.</p>
+
+      <div class="contact-container">
+        <div class="contact-info-side">
+          <h3>Contact Details</h3>
+          <p>Feel free to reach out via phone, email, or WhatsApp. We look forward to being part of your event.</p>
+
+          <ul class="contact-details-list">
+            <li><span aria-hidden="true">🌐</span> <span><strong>Website:</strong> <a href="https://www.lawngamerentals.co.za">www.lawngamerentals.co.za</a></span></li>
+            <li><span aria-hidden="true">✉️</span> <span><strong>Email:</strong> <a href="mailto:shaun@lawngamerentals.co.za">shaun@lawngamerentals.co.za</a></span></li>
+            <li><span aria-hidden="true">📞</span> <span><strong>Cell:</strong> <a href="tel:+27817566989">081 756 6989</a> or <a href="tel:+27615107256">061 510 7256</a></span></li>
+            <li><span aria-hidden="true">💬</span> <span><strong>WhatsApp:</strong> <a href="https://wa.me/27815455073">081 545 5073</a></span></li>
+          </ul>
+
+          <a class="whatsapp-cta" href="https://wa.me/27815455073?text=Hi%20Lawn%20Game%20Rentals%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+
+        <div class="contact-form-side">
+          <form id="enquiry-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Sarah Jenkins" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="sarah@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="event">Event Date &amp; Package of Interest</label>
+              <input id="event" name="event" type="text" placeholder="e.g. 15 October - Package Option 1">
+            </div>
+            <div class="form-group">
+              <label for="message">Message / Design Requests</label>
+              <textarea id="message" name="message" placeholder="Tell us about your event details..."></textarea>
+            </div>
+            <!-- Spam trap: hidden from people, tempting to bots. -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="company">Company (leave blank)</label>
+              <input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn form-submit">Send Enquiry</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="form-note">We usually reply within one business day. Prefer WhatsApp? <a href="https://wa.me/27815455073">Message us here</a>.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#games">The Games</a>
+      <a href="#packages">Event Packages</a>
+      <a href="#design">Design Services</a>
+      <a href="#info">Guidelines</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>&copy; <span id="year">2026</span> Lawn Game Rentals. All Rights Reserved. Designed for Pretoria &amp; Gauteng Events.</p>
+  </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lawn Game Rentals",
+  "description": "Premium oversized lawn game rentals for weddings, parties and corporate events across Pretoria, Johannesburg and Gauteng.",
+  "url": "https://www.lawngamerentals.co.za/",
+  "email": "shaun@lawngamerentals.co.za",
+  "telephone": "+27817566989",
+  "image": "https://www.lawngamerentals.co.za/images/bg_4.jpg",
+  "priceRange": "R150 - R1550",
+  "areaServed": [
+    { "@type": "City", "name": "Pretoria" },
+    { "@type": "City", "name": "Johannesburg" },
+    { "@type": "City", "name": "Centurion" },
+    { "@type": "AdministrativeArea", "name": "Gauteng" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Gauteng",
+    "addressCountry": "ZA"
+  }
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  var header = document.querySelector('header');
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('primary-nav');
+  var navLinks = nav ? nav.querySelectorAll('a') : [];
+
+  /* Keep --header-h in sync so anchor targets clear the sticky header. */
+  function syncHeaderHeight() {
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('load', syncHeaderHeight);
+  if (window.ResizeObserver) {
+    new ResizeObserver(syncHeaderHeight).observe(header);
+  } else {
+    window.addEventListener('resize', syncHeaderHeight);
+  }
+
+  /* --- Mobile menu --- */
+  function closeMenu() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  Array.prototype.forEach.call(navLinks, function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (nav.classList.contains('is-open') && !header.contains(e.target)) closeMenu();
+  });
+
+  window.matchMedia('(min-width: 1025px)').addEventListener('change', function (e) {
+    if (e.matches) closeMenu();
+  });
+
+  /* --- Highlight the section currently in view --- */
+  var sections = document.querySelectorAll('main section[id]');
+  var linkFor = {};
+  Array.prototype.forEach.call(navLinks, function (link) {
+    linkFor[link.getAttribute('href').slice(1)] = link;
+  });
+
+  if (window.IntersectionObserver) {
+    var visible = {};
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        visible[entry.target.id] = entry.isIntersecting;
+      });
+      var current = null;
+      Array.prototype.forEach.call(sections, function (s) {
+        if (visible[s.id] && !current) current = s.id;
+      });
+      Array.prototype.forEach.call(navLinks, function (l) { l.removeAttribute('aria-current'); });
+      if (current && linkFor[current]) linkFor[current].setAttribute('aria-current', 'true');
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    Array.prototype.forEach.call(sections, function (s) { spy.observe(s); });
+  }
+
+  /* --- Package buttons prefill the enquiry form --- */
+  var eventField = document.getElementById('event');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-package]'), function (btn) {
+    btn.addEventListener('click', function () {
+      if (!eventField) return;
+      eventField.value = 'Package ' + btn.getAttribute('data-package');
+      window.setTimeout(function () { eventField.focus({ preventScroll: true }); }, 700);
+    });
+  });
+
+  /* --- Enquiry form -> Formspree ---------------------------------------
+     Posts via fetch so the visitor stays on the page. If JS is unavailable
+     the plain form action still submits and Formspree renders its own
+     thank-you page, so the form degrades rather than breaking. */
+  var form = document.getElementById('enquiry-form');
+  var status = document.querySelector('.form-status');
+
+  function setStatus(msg, state) {
+    status.textContent = msg;
+    status.classList.remove('is-error', 'is-success');
+    if (state) status.classList.add(state);
+  }
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      var endpoint = form.getAttribute('action');
+
+      /* Not configured yet: let the mailto fallback handle it rather than
+         posting to a dead endpoint and losing the enquiry. */
+      if (endpoint.indexOf('YOUR_FORM_ID') !== -1) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var f = form.elements;
+        setStatus('Opening your email app…');
+        window.location.href =
+          'mailto:shaun@lawngamerentals.co.za' +
+          '?subject=' + encodeURIComponent('Lawn Game Rentals enquiry — ' + f.name.value.trim()) +
+          '&body=' + encodeURIComponent(
+            'Name: ' + f.name.value.trim() + '\n' +
+            'Email: ' + f.email.value.trim() + '\n' +
+            'Event date / package: ' + (f.event.value.trim() || '-') + '\n\n' +
+            'Message:\n' + (f.message.value.trim() || '-') + '\n');
+        return;
+      }
+
+      if (!window.fetch) return;   /* Very old browser: normal POST proceeds. */
+      e.preventDefault();
+
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var btn = form.querySelector('.form-submit');
+      var original = btn.textContent;
+      btn.setAttribute('aria-disabled', 'true');
+      btn.textContent = 'Sending…';
+      setStatus('Sending your enquiry…');
+
+      var data = new FormData(form);
+      /* Makes "Reply" in the notification email go straight to the visitor. */
+      data.append('_replyto', form.elements.email.value.trim());
+      data.append('_subject', 'Lawn Game Rentals enquiry — ' + form.elements.name.value.trim());
+
+      fetch(endpoint, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          form.reset();
+          setStatus('Thank you — your enquiry is on its way. We will be in touch within one business day.', 'is-success');
+          return;
+        }
+        return res.json().then(function (body) {
+          var msg = body && body.errors
+            ? body.errors.map(function (x) { return x.message; }).join(', ')
+            : 'Something went wrong sending that.';
+          throw new Error(msg);
+        });
+      }).catch(function (err) {
+        var reason = err.message || 'Something went wrong sending that';
+        if (!/[.!?]$/.test(reason)) reason += '.';
+        setStatus(
+          reason + ' Please WhatsApp us on 081 545 5073 or email shaun@lawngamerentals.co.za.',
+          'is-error'
+        );
+      }).then(function () {
+        btn.removeAttribute('aria-disabled');
+        btn.textContent = original;
+      });
+    });
+  }
+
+  /* --- Footer year --- */
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>

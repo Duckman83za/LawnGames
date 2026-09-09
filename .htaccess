@@ -1,0 +1,115 @@
+# ==========================================================================
+# Lawn Game Rentals — Apache / cPanel configuration
+# ==========================================================================
+
+# --- Default document ------------------------------------------------------
+DirectoryIndex index.html
+
+# --- Don't list folder contents when there's no index file -----------------
+Options -Indexes
+
+# --- Force HTTPS + canonical www in a single redirect ----------------------
+# Two separate rules would chain redirects (http -> https -> www), which is
+# slower and dilutes link equity. This resolves both in one hop.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+  RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# --- Block source, backup and dotfiles from being served -------------------
+# Without this, index.html.bak would be downloadable as plain text by anyone
+# who guessed the name. Do not upload .bak files, but block them regardless.
+# Guarded by module: "Require" is Apache 2.4 syntax and would return a site-wide
+# 500 on 2.2, so the older Order/Deny form is kept as a fallback.
+<IfModule mod_authz_core.c>
+  <FilesMatch "\.(bak|orig|save|swp|tmp|log|ini|sh|sql|json|md)$">
+    Require all denied
+  </FilesMatch>
+  <FilesMatch "^\.">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+  <FilesMatch "\.(bak|orig|save|swp|tmp|log|ini|sh|sql|json|md)$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+  <FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
+
+# Keep .well-known reachable (SSL renewal, domain verification).
+<IfModule mod_rewrite.c>
+  RewriteRule ^\.well-known/ - [L]
+</IfModule>
+
+# --- MIME types ------------------------------------------------------------
+# Some older cPanel Apache builds don't know WebP and send it as
+# application/octet-stream, which browsers refuse to render.
+<IfModule mod_mime.c>
+  AddType image/webp                   .webp
+  AddType image/svg+xml                .svg
+  AddType application/xml              .xml
+  AddType text/plain                   .txt
+  AddType font/woff2                   .woff2
+</IfModule>
+
+# --- Compression -----------------------------------------------------------
+# Note: images (webp/png/jpg) are already compressed — deflating them again
+# wastes CPU and can slightly increase size, so they're deliberately absent.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/xml application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Browser caching -------------------------------------------------------
+# Images and fonts are versioned by filename in practice (you'd upload a new
+# name if the art changes), so they can cache hard. HTML must stay short so
+# content edits appear promptly.
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  ExpiresByType image/webp             "access plus 1 year"
+  ExpiresByType image/png              "access plus 1 year"
+  ExpiresByType image/jpeg             "access plus 1 year"
+  ExpiresByType image/svg+xml          "access plus 1 year"
+  ExpiresByType font/woff2             "access plus 1 year"
+
+  ExpiresByType text/css               "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  ExpiresByType text/html              "access plus 1 hour"
+  ExpiresByType application/xml        "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|png|jpe?g|svg|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # --- Security headers ----------------------------------------------------
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+
+  # Remove the header that advertises your PHP version to attackers.
+  Header unset X-Powered-By
+</IfModule>
+
+# --- Character set ---------------------------------------------------------
+AddDefaultCharset UTF-8

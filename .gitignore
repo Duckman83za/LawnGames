@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Deployment artifact — rebuilt from source, don't version it
+*.zip
+
+# Local editor/agent tooling
+.claude/
