@@ -120,31 +120,12 @@
     color: var(--white);
     padding: 0.7rem var(--gutter);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid rgba(197, 125, 50, 0.5);
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--white);
-    flex-shrink: 0;
-  }
-
-  .brand img { height: 46px; width: auto; }
-
-  .brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    line-height: 1.15;
-    letter-spacing: 0.5px;
   }
 
   nav ul {
@@ -194,6 +175,7 @@
     justify-content: center;
     cursor: pointer;
     flex-shrink: 0;
+    margin-left: auto;
   }
 
   .nav-toggle .bar {
@@ -240,13 +222,10 @@
   .hero-logo {
     width: min(430px, 74vw);
     height: auto;
-    /* The logo art has built-in whitespace; pull the heading up only where
-       there is room for it to overlap without colliding. */
-    margin: 0 auto;
-  }
-
-  @media (min-width: 900px) {
-    .hero-logo { margin-bottom: -34px; }
+    /* The logo art has whitespace inside its box, so the tagline is pulled
+       up into it. Scales with the logo so the overlap looks the same on
+       every screen; capped at the original -40px on desktop. */
+    margin: 0 auto clamp(-40px, -3.2vw, -14px);
   }
 
   .hero-tagline {
@@ -556,6 +535,10 @@
     color: var(--forest-green);
     font-size: clamp(1.5rem, 3.5vw, 1.8rem);
     margin-bottom: 25px;
+    padding: 10px 18px;
+    background: rgba(197, 160, 89, 0.18);
+    border-left: 5px solid var(--gold-accent);
+    border-radius: 12px;
   }
 
   .info-box p + p { margin-top: 18px; }
@@ -853,11 +836,6 @@
 
   <!-- HEADER -->
   <header>
-    <a class="brand" href="#home" aria-label="Lawn Game Rentals — home">
-      <img src="images/logolgrw.svg" alt="" width="46" height="46">
-      <span class="brand-name">Lawn Game<br>Rentals</span>
-    </a>
-
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
       <span class="bar" aria-hidden="true"></span>
       <span class="visually-hidden">Menu</span>
@@ -1323,7 +1301,7 @@
       <a href="#info">Guidelines</a>
       <a href="#contact">Contact</a>
     </nav>
-    <p>&copy; <span id="year">2026</span> Lawn Game Rentals. All Rights Reserved. Designed for Pretoria &amp; Gauteng Events.</p>
+    <p>&copy; <span id="year">2026</span> Lawn Game Rentals, trading as Shaun's Events. All Rights Reserved. Designed for Pretoria &amp; Gauteng Events.</p>
   </footer>
 
 <script type="application/ld+json">
@@ -1332,6 +1310,7 @@
   "@type": "LocalBusiness",
   "@id": "https://www.lawngamerentals.co.za/#business",
   "name": "Lawn Game Rentals",
+  "alternateName": "Shaun's Events",
   "description": "Giant lawn game hire for weddings, parties and corporate events across Pretoria, Johannesburg and Gauteng.",
   "url": "https://www.lawngamerentals.co.za/",
   "logo": "https://www.lawngamerentals.co.za/images/logolgrw.svg",
