@@ -231,8 +231,11 @@
   .hero-tagline {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(2.6rem, 8.5vw, 5rem);
-    line-height: 1.15;
-    margin-bottom: 15px;
+    /* The original relied on the browser's default h1 top margin (0.67em)
+       and line-height to sit clear of the logo. Reproduced explicitly here
+       since the reset removes those defaults. */
+    line-height: normal;
+    margin: 0.67em 0 15px;
     letter-spacing: 1px;
     color: #FFFFFF;
     font-weight: normal;
