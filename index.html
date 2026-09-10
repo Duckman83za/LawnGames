@@ -236,6 +236,11 @@
        since the reset removes those defaults. */
     line-height: normal;
     margin: 0.67em 0 15px;
+  }
+
+  /* Each half is unbreakable, so when the tagline wraps it can only split
+     between "Your" and "Next" — never leaving a single word orphaned. */
+  .hero-tagline .nowrap { white-space: nowrap;
     letter-spacing: 1px;
     color: #FFFFFF;
     font-weight: normal;
@@ -862,7 +867,7 @@
   <!-- HERO SECTION -->
   <section id="home" class="hero">
     <img class="hero-logo" src="images/logolgrw.svg" alt="Lawn Game Rentals Pretoria logo" width="430" height="430" fetchpriority="high">
-    <p class="hero-tagline">Elevate Your Next Event</p>
+    <p class="hero-tagline"><span class="nowrap">Elevate Your</span> <span class="nowrap">Next Event</span></p>
     <h1 class="hero-heading">Premium giant lawn game hire for weddings, milestone celebrations and corporate events across Pretoria, Johannesburg and Gauteng.</h1>
     <div class="hero-actions">
       <a href="#games" class="btn">Explore Our Games</a>
