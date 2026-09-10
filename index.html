@@ -20,6 +20,16 @@
 <meta property="og:image:alt" content="Giant lawn games set up on a green lawn for an event">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- Google Analytics (GA4) -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RYKGCGCEJ1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-RYKGCGCEJ1');
+</script>
+
 <!-- Google Fonts for High-End Typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1417,6 +1427,7 @@
         if (res.ok) {
           form.reset();
           setStatus('Thank you — your enquiry is on its way. We will be in touch within one business day.', 'is-success');
+          track('generate_lead', { method: 'enquiry_form' });
           return;
         }
         return res.json().then(function (body) {
@@ -1438,6 +1449,25 @@
       });
     });
   }
+
+  /* --- Analytics helper: no-op if GA is blocked or hasn't loaded --- */
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+
+  /* Direct-contact clicks are leads too; count them alongside the form. */
+  Array.prototype.forEach.call(
+    document.querySelectorAll('a[href^="https://wa.me/"], a[href^="tel:"], a[href^="mailto:"]'),
+    function (a) {
+      a.addEventListener('click', function () {
+        var href = a.getAttribute('href');
+        var method = href.indexOf('wa.me') !== -1 ? 'whatsapp'
+                   : href.indexOf('tel:') === 0    ? 'phone'
+                   : 'email';
+        track('contact', { method: method });
+      });
+    }
+  );
 
   /* --- Footer year --- */
   var year = document.getElementById('year');
