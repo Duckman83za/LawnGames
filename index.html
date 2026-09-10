@@ -729,6 +729,57 @@
 
   .footer-links a:hover { color: var(--gold-accent); }
 
+  /* --- FLOATING WHATSAPP BUTTON --- */
+  .wa-float {
+    position: fixed;
+    right: clamp(16px, 3vw, 28px);
+    /* Clear the iPhone home indicator. */
+    bottom: calc(clamp(16px, 3vw, 28px) + env(safe-area-inset-bottom, 0px));
+    z-index: 900;                       /* below the sticky header (1000) */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 56px;
+    padding: 0 16px 0 0;
+    background: #25D366;
+    color: #FFFFFF;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .wa-float:hover,
+  .wa-float:focus-visible {
+    background: #1FB855;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.32);
+  }
+
+  .wa-float svg {
+    width: 56px;
+    height: 56px;
+    padding: 12px;
+    flex-shrink: 0;
+  }
+
+  .wa-float span { white-space: nowrap; }
+
+  /* Icon only on small screens so it never crowds the content. */
+  @media (max-width: 600px) {
+    .wa-float { padding-right: 0; }
+    .wa-float span { display: none; }
+  }
+
+  @media print { .wa-float { display: none; } }
+
+  /* Give the footer room so its last line isn't permanently under the button. */
+  @media (max-width: 600px) {
+    footer { padding-bottom: calc(36px + 56px + env(safe-area-inset-bottom, 0px)); }
+  }
+
   /* --- RESPONSIVE --- */
   @media (max-width: 1024px) {
     .nav-toggle { display: inline-flex; }
@@ -1245,6 +1296,18 @@
 
   </main>
 
+  <!-- FLOATING WHATSAPP -->
+  <a class="wa-float"
+     href="https://wa.me/27815455073?text=Hi%20Lawn%20Game%20Rentals%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking."
+     target="_blank" rel="noopener"
+     aria-label="Chat with us on WhatsApp"
+     data-placement="floating">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M16 2.67A13.28 13.28 0 0 0 4.6 22.66L2.67 29.33l6.84-1.79A13.28 13.28 0 1 0 16 2.67Zm0 24.3a11.03 11.03 0 0 1-5.62-1.54l-.4-.24-4.06 1.06 1.09-3.96-.27-.41A11.02 11.02 0 1 1 16 26.97Zm6.05-8.25c-.33-.17-1.96-.97-2.27-1.08-.3-.11-.52-.17-.75.17-.22.33-.86 1.08-1.05 1.3-.19.22-.39.25-.72.08-.33-.16-1.4-.51-2.66-1.64a9.94 9.94 0 0 1-1.84-2.29c-.19-.33-.02-.51.15-.68.15-.15.33-.39.5-.58.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.58-.08-.17-.75-1.8-1.02-2.47-.27-.65-.55-.56-.75-.57h-.64c-.22 0-.58.08-.88.41-.3.33-1.16 1.13-1.16 2.76s1.19 3.21 1.35 3.43c.17.22 2.34 3.57 5.66 5 .79.34 1.41.55 1.89.7.8.25 1.52.22 2.09.13.64-.1 1.96-.8 2.24-1.58.28-.77.28-1.44.19-1.58-.08-.14-.3-.22-.63-.39Z"/>
+    </svg>
+    <span>Chat on WhatsApp</span>
+  </a>
+
   <!-- FOOTER -->
   <footer>
     <nav class="footer-links" aria-label="Footer">
@@ -1464,7 +1527,7 @@
         var method = href.indexOf('wa.me') !== -1 ? 'whatsapp'
                    : href.indexOf('tel:') === 0    ? 'phone'
                    : 'email';
-        track('contact', { method: method });
+        track('contact', { method: method, placement: a.getAttribute('data-placement') || 'inline' });
       });
     }
   );
