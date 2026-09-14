@@ -1,0 +1,45 @@
+# Builds the site and uploads dist/ to cPanel over FTP on every push to main.
+#
+# Needs three repository secrets (Settings -> Secrets and variables -> Actions):
+#   FTP_SERVER    e.g. ftp.lawngamerentals.co.za  (host only, no ftp:// prefix)
+#   FTP_USERNAME  the cPanel FTP account
+#   FTP_PASSWORD  its password
+#
+# server-dir must be the web root as seen by that FTP account. For the main
+# cPanel account that is public_html/; for an FTP account created with
+# public_html as its home directory it is ./ instead.
+
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:      # also lets you run it by hand from the Actions tab
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false   # never interrupt an upload halfway through
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Build site
+        run: python3 build.py
+
+      - name: Upload dist/ over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps            # explicit TLS on port 21; change to ftp only if the host refuses it
+          local-dir: dist/
+          server-dir: public_html/
+          # Only changed files are uploaded; the action keeps a small state
+          # file on the server to know what's already there.
+          state-name: .ftp-deploy-sync-state.json
+          dangerous-clean-slate: false

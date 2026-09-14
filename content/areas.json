@@ -1,0 +1,34 @@
+{
+  "Pretoria": [
+    "Hatfield",
+    "Brooklyn",
+    "Waterkloof",
+    "Lynnwood",
+    "Menlyn",
+    "Garsfontein",
+    "Silver Lakes",
+    "Montana",
+    "Centurion",
+    "Irene"
+  ],
+  "Johannesburg": [
+    "Sandton",
+    "Bryanston",
+    "Fourways",
+    "Randburg",
+    "Rosebank",
+    "Midrand",
+    "Bedfordview",
+    "Roodepoort",
+    "Northcliff",
+    "Kyalami"
+  ],
+  "Surrounding areas": [
+    "Hartbeespoort",
+    "Krugersdorp",
+    "Benoni",
+    "Boksburg",
+    "Kempton Park",
+    "Cullinan"
+  ]
+}

@@ -1,0 +1,59 @@
+  <!-- GAME PAGE -->
+  <section class="subpage-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">›</span>
+        <a href="/#games">Lawn Games for Hire</a> <span aria-hidden="true">›</span>
+        <span aria-current="page">{{name}}</span>
+      </nav>
+      <p class="eyebrow">{{size}} game · R{{price}} hire + R{{price}} refundable deposit</p>
+      <h1>{{h1}}</h1>
+    </div>
+  </section>
+
+  <section class="game-page">
+    <div class="container">
+      <div class="game-layout">
+        <div class="game-media">
+          {{picture}}
+        </div>
+
+        <dl class="facts">
+          <div><dt>Players</dt><dd>{{players}}</dd></div>
+          <div><dt>Ages</dt><dd>{{ages}}</dd></div>
+          <div><dt>Space needed</dt><dd>{{space}}</dd></div>
+          <div><dt>Surface</dt><dd>{{surface}}</dd></div>
+          <div><dt>Game length</dt><dd>{{duration}}</dd></div>
+          <div><dt>Weather</dt><dd>{{weather}}</dd></div>
+        </dl>
+      </div>
+
+      <div class="game-body">
+        {{intro}}
+
+        <h2>How to play {{name}}</h2>
+        <ol class="rules">
+{{rules}}
+        </ol>
+
+        <h2>What's included</h2>
+        <p>{{includes}}</p>
+
+        <h2>Hire {{name}} on its own or in a package</h2>
+        <p>{{name}} is <strong>R{{price}}</strong> to hire, plus a <strong>R{{price}} deposit</strong> refunded after the equipment is returned in good condition. As a <strong>{{size_word}} game</strong>, it can be one of your {{size_word}} picks in any of our <a href="/#packages">event packages</a>, which bundle games at a lower combined price and include a free custom WhatsApp invitation.</p>
+
+        <h2>Questions about {{name}}</h2>
+{{faqs}}
+
+        <div class="game-cta">
+          <a href="/#contact" class="btn" data-package="{{name}}">Enquire about {{name}}</a>
+          <a href="{{wa_link}}" class="btn btn-outline btn-outline-dark" target="_blank" rel="noopener">Ask on WhatsApp</a>
+        </div>
+      </div>
+
+      <h2 class="related-title">Other games you might like</h2>
+      <div class="related-grid">
+{{related}}
+      </div>
+    </div>
+  </section>
