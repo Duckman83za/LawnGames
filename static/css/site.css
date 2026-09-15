@@ -137,14 +137,26 @@
   .sub-toggle:hover { color: var(--gold-accent); }
   .has-sub.is-open > .sub-toggle svg { transform: rotate(180deg); }
 
+  /* Sits flush under the header's bottom border. The ::after bridge keeps
+     :hover alive while the pointer crosses the gap from the link to the panel. */
+  .has-sub::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    height: calc(0.7rem + 8px);
+  }
+
   .sub {
     display: none;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: calc(0.7rem + 2px);   /* header padding + border */
+    gap: 0;                            /* undo the top-level menu's item gap */
+    align-items: stretch;
     min-width: 230px;
-    padding: 8px 0;
+    padding: 6px 0;
     background: var(--forest-green);
     border: 1px solid rgba(197, 160, 89, 0.3);
     border-radius: 10px;
@@ -847,9 +859,11 @@
     .has-sub > a { flex: 1; }
     .sub-toggle { padding: 12px var(--gutter); }
     .sub-toggle svg { width: 16px; height: 16px; }
+    .has-sub::after { display: none; }
     .sub, .sub-games {
       position: static;
       transform: none;
+      margin-top: 0;
       min-width: 0;
       width: 100%;
       padding: 4px 0 8px;
