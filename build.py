@@ -49,8 +49,10 @@ def write(rel, text):
 def page(rel, *, title, description, canonical_path, content, jsonld, og_title=None,
          og_image="/images/og-image.jpg", og_alt="Lawn Game Rentals logo over a sunlit lawn",
          body_class="", head_extra=""):
+    global NAV
+    if NAV is None: NAV = nav_html()
     return write(rel, render(
-        BASE,
+        BASE, nav=NAV,
         title=esc(title), description=esc(description),
         canonical=BASE_URL + canonical_path, og_title=esc(og_title or title),
         og_image=BASE_URL + og_image, og_alt=esc(og_alt),
@@ -142,6 +144,41 @@ def related_cards(games):
         f'<img src="/{o["image"]}-400.webp" alt="" width="400" height="{round(400 * o["img_h"] / o["img_w"])}" loading="lazy">'
         f'<div><strong>{esc(o["name"])}</strong><span>R{o["price"]} · {o["size"].split()[0]}</span></div></a>'
         for o in games)
+
+CHEVRON = ('<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+           '<path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>')
+
+def nav_html():
+    def sub_toggle(label):
+        return (f'<button class="sub-toggle" type="button" aria-expanded="false" aria-label="Show {label}">'
+                f'{CHEVRON}</button>')
+    games = "\n".join(f'          <li><a href="{g["url"]}">{esc(g["name"])}</a></li>' for g in GAMES)
+    occasions = "\n".join(f'          <li><a href="{o["url"]}">{esc(o["name"])}</a></li>' for o in OCCASIONS)
+    return f'''    <nav id="primary-nav" aria-label="Main">
+      <ul>
+        <li><a href="/#home">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li class="has-sub">
+          <a href="/#games">The Games</a>{sub_toggle("all games")}
+          <ul class="sub sub-games">
+            <li class="sub-all"><a href="/#games">All lawn games for hire</a></li>
+{games}
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="/#occasions">Occasions</a>{sub_toggle("occasions")}
+          <ul class="sub">
+{occasions}
+          </ul>
+        </li>
+        <li><a href="/#packages">Event Packages</a></li>
+        <li><a href="/#design">Design Services</a></li>
+        <li><a href="/#info">Guidelines</a></li>
+        <li><a href="/#contact" class="nav-cta">Book Online</a></li>
+      </ul>
+    </nav>'''
+
+NAV = None
 
 # --------------------------------------------------------------------------
 # pages

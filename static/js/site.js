@@ -21,6 +21,7 @@
   /* --- Mobile menu --- */
   function closeMenu() {
     nav.classList.remove('is-open');
+    closeSubs(null);
     toggle.setAttribute('aria-expanded', 'false');
   }
 
@@ -46,6 +47,36 @@
 
   window.matchMedia('(min-width: 1025px)').addEventListener('change', function (e) {
     if (e.matches) closeMenu();
+  });
+
+  /* --- Dropdown sub-menus (The Games, Occasions) --- */
+  var subs = document.querySelectorAll('.has-sub');
+
+  function closeSubs(except) {
+    Array.prototype.forEach.call(subs, function (li) {
+      if (li !== except) {
+        li.classList.remove('is-open');
+        li.querySelector('.sub-toggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  Array.prototype.forEach.call(subs, function (li) {
+    var btn = li.querySelector('.sub-toggle');
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = li.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      closeSubs(li);
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeSubs(null);
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.has-sub')) closeSubs(null);
   });
 
   /* --- Highlight the section currently in view --- */

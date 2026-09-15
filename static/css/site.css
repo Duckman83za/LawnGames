@@ -120,6 +120,60 @@
   .nav-cta:hover { background-color: var(--gold-hover); }
   .nav-cta[aria-current="true"] { border-bottom: 0; }
 
+  /* --- DROPDOWNS --- */
+  .has-sub { position: relative; display: flex; align-items: center; gap: 2px; }
+
+  .sub-toggle {
+    background: none;
+    border: 0;
+    padding: 6px 4px;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+  }
+  .sub-toggle svg { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .sub-toggle:hover { color: var(--gold-accent); }
+  .has-sub.is-open > .sub-toggle svg { transform: rotate(180deg); }
+
+  .sub {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 230px;
+    padding: 8px 0;
+    background: var(--forest-green);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 14px 26px rgba(0,0,0,0.28);
+    z-index: 1001;
+  }
+  .sub-games { min-width: 500px; grid-template-columns: 1fr 1fr; left: 0; transform: none; }
+  .has-sub.is-open > .sub { display: block; }
+  .has-sub.is-open > .sub-games { display: grid; }
+
+  .sub li { margin: 0; }
+  .sub a {
+    display: block;
+    padding: 9px 20px;
+    font-size: 0.95rem;
+    border-bottom: 0 !important;
+    white-space: nowrap;
+  }
+  .sub a:hover { background: rgba(197, 160, 89, 0.12); color: var(--gold-accent); }
+  .sub-all { grid-column: 1 / -1; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 6px; }
+  .sub-all a { font-weight: 600; color: var(--gold-accent); }
+
+  /* Desktop with a real pointer: hovering opens; focus keeps it open for keyboard users. */
+  @media (hover: hover) and (min-width: 1025px) {
+    .has-sub:hover > .sub, .has-sub:focus-within > .sub { display: block; }
+    .has-sub:hover > .sub-games, .has-sub:focus-within > .sub-games { display: grid; }
+    .has-sub:hover > .sub-toggle svg, .has-sub:focus-within > .sub-toggle svg { transform: rotate(180deg); }
+  }
+
   /* Hamburger */
   .nav-toggle {
     display: none;
@@ -787,6 +841,26 @@
       text-align: center;
       border-radius: 6px;
     }
+
+    /* Dropdowns become accordions inside the mobile panel. */
+    .has-sub { flex-wrap: wrap; justify-content: space-between; gap: 0; }
+    .has-sub > a { flex: 1; }
+    .sub-toggle { padding: 12px var(--gutter); }
+    .sub-toggle svg { width: 16px; height: 16px; }
+    .sub, .sub-games {
+      position: static;
+      transform: none;
+      min-width: 0;
+      width: 100%;
+      padding: 4px 0 8px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .has-sub.is-open > .sub-games { display: block; }
+    #primary-nav .sub a { padding: 11px var(--gutter) 11px calc(var(--gutter) + 18px); font-size: 0.98rem; white-space: normal; }
+    .sub-all { border-bottom: 0; margin: 0; }
   }
 
   @media (max-width: 768px) {
