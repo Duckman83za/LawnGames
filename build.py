@@ -13,7 +13,7 @@ Layout
 
 No dependencies beyond the Python 3 standard library, on purpose.
 """
-import json, re, shutil, sys, html, zipfile
+import json, re, shutil, sys, html, zipfile, hashlib
 from datetime import date
 from pathlib import Path
 
@@ -74,7 +74,12 @@ def picture(g, *, sizes, loading="lazy", cls=""):
 # --------------------------------------------------------------------------
 # data
 # --------------------------------------------------------------------------
-BASE = read("templates/base.html")
+def asset_version(rel):
+    return hashlib.sha1((ROOT / "static" / rel).read_bytes()).hexdigest()[:10]
+
+BASE = (read("templates/base.html")
+        .replace('href="/css/site.css"', f'href="/css/site.css?v={asset_version("css/site.css")}"')
+        .replace('src="/js/site.js"', f'src="/js/site.js?v={asset_version("js/site.js")}"'))
 GAMES = load("games")
 OCCASIONS = load("occasions")
 FAQ = load("faq")
