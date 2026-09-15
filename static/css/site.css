@@ -1062,3 +1062,7 @@
   .lead { font-size: 1.1rem; color: var(--text-main); }
   .footer-links-secondary { margin-top: -6px; font-size: 0.82rem; }
   .footer-links-secondary a { color: #A9B8AF; }
+
+  .popular-for { font-size: 0.92rem; color: var(--text-muted); margin-top: 1.4rem; }
+  .popular-for a { color: var(--forest-green); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold-accent); margin-right: 2px; }
+  .popular-for a:hover { color: var(--gold-accent); }

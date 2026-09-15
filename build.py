@@ -13,7 +13,7 @@ Layout
 
 No dependencies beyond the Python 3 standard library, on purpose.
 """
-import json, re, shutil, sys, html, zipfile, hashlib
+import json, re, shutil, sys, html, zipfile, hashlib, subprocess
 from datetime import date
 from pathlib import Path
 
@@ -21,6 +21,17 @@ ROOT = Path(__file__).parent
 DIST = ROOT / "dist"
 BASE_URL = "https://www.lawngamerentals.co.za"
 TODAY = date.today().isoformat()
+LASTMOD = {}
+
+def git_lastmod(*paths):
+    """Date of the last commit touching any of these files - so the sitemap's
+    lastmod means something instead of being stamped with every build."""
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", *paths],
+                             capture_output=True, text=True, cwd=ROOT).stdout.strip()
+        return out or TODAY
+    except Exception:
+        return TODAY
 
 WA_NUMBER = "27817566989"
 WA_LINK = f"https://wa.me/{WA_NUMBER}?text=Hi%20Lawn%20Game%20Rentals%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking."
@@ -48,28 +59,35 @@ def write(rel, text):
 
 def page(rel, *, title, description, canonical_path, content, jsonld, og_title=None,
          og_image="/images/og-image.jpg", og_alt="Lawn Game Rentals logo over a sunlit lawn",
-         body_class="", head_extra=""):
+         og_w=1200, og_h=630, body_class="", head_extra="", lastmod_inputs=()):
+    LASTMOD[canonical_path] = git_lastmod(*lastmod_inputs) if lastmod_inputs else TODAY
     global NAV
     if NAV is None: NAV = nav_html()
     return write(rel, render(
         BASE, nav=NAV,
         title=esc(title), description=esc(description),
         canonical=BASE_URL + canonical_path, og_title=esc(og_title or title),
-        og_image=BASE_URL + og_image, og_alt=esc(og_alt),
+        og_image=BASE_URL + og_image, og_alt=esc(og_alt), og_w=og_w, og_h=og_h,
         head_extra=head_extra, body_class=body_class, content=content,
         jsonld=json.dumps(jsonld, indent=2, ensure_ascii=False),
     ))
 
-def picture(g, *, sizes, loading="lazy", cls=""):
+def picture(g, *, sizes, loading="lazy", cls="", priority=False):
     """<picture> with 400/800 WebP variants and the PNG fallback."""
     base = "/" + g["image"]
+    fp = ' fetchpriority="high"' if priority else ""
     return (
         f'<picture{(" class=" + chr(34) + cls + chr(34)) if cls else ""}>\n'
         f'  <source type="image/webp" srcset="{base}-400.webp 400w, {base}.webp 800w" sizes="{sizes}">\n'
         f'  <img src="{base}.png" alt="{esc(g["alt"])}" width="{g["img_w"]}" height="{g["img_h"]}" '
-        f'loading="{loading}" decoding="async">\n'
+        f'loading="{loading}" decoding="async"{fp}>\n'
         f'</picture>'
     )
+
+def preload_picture(g, sizes):
+    base = "/" + g["image"]
+    return (f'<link rel="preload" as="image" type="image/webp" '
+            f'imagesrcset="{base}-400.webp 400w, {base}.webp 800w" imagesizes="{sizes}">')
 
 # --------------------------------------------------------------------------
 # data
@@ -228,7 +246,8 @@ def build_home():
         og_title="Giant Lawn Game Hire in Pretoria & Johannesburg | Lawn Game Rentals",
         description="Hire giant lawn games - cornhole, croquet, 4-in-a-row and more - for weddings, parties and corporate events in Pretoria, Johannesburg and Gauteng.",
         canonical_path="/", content=content, jsonld=[local_business(with_catalog=True), faq_schema(FAQ)],
-        body_class="page-home", head_extra=head_extra)
+        body_class="page-home", head_extra=head_extra,
+        lastmod_inputs=("content", "templates/home.html"))
 
 def build_game(g):
     size_word = g["size"].split()[0].lower()          # "Big (B)" -> "big"
@@ -241,9 +260,10 @@ def build_game(g):
     others.sort(key=lambda o: (o["size"] != g["size"], GAMES.index(o)))
     related = related_cards(others[:3])
 
-    content = render(read("templates/game.html"),
+    occasion_links = ", ".join(f'<a href="{o["url"]}">{esc(o["name"])}</a>' for o in OCCASIONS)
+    content = render(read("templates/game.html"), occasion_links=occasion_links,
         name=esc(g["name"]), h1=esc(h1), size=g["size"].split()[0], size_word=size_word, price=g["price"],
-        picture=picture(g, sizes="(max-width: 800px) 100vw, 640px", loading="eager"),
+        picture=picture(g, sizes="(max-width: 800px) 100vw, 640px", loading="eager", priority=True),
         players=esc(g["players"]), ages=esc(g["ages"]), space=esc(g["space"]), surface=esc(g["surface"]),
         duration=esc(g["duration"]), weather=esc(g["weather"]),
         intro=intro, rules=rules, includes=esc(g["includes"]), faqs=faqs, related=related, wa_link=WA_LINK)
@@ -264,8 +284,10 @@ def build_game(g):
     ]
     return page(g["url"].lstrip("/") + "index.html",
         title=g["title"], description=g["description"], canonical_path=g["url"],
-        og_image="/" + g["image"] + ".webp", og_alt=g["alt"],
-        content=content, jsonld=jsonld, body_class="page-game")
+        og_image="/images/og/" + g["image"].split("/")[1] + ".jpg", og_alt=g["alt"],
+        content=content, jsonld=jsonld, body_class="page-game",
+        head_extra=preload_picture(g, "(max-width: 800px) 100vw, 640px"),
+        lastmod_inputs=("content/games.json", "templates/game.html"))
 
 def build_occasion(o):
     sections = "\n".join(f"        <h2>{esc(h)}</h2>\n        <p>{body}</p>" for h, body in o["sections"])
@@ -274,11 +296,29 @@ def build_occasion(o):
         games=related_cards([BY_SLUG[s] for s in o["games"]]), faqs=faq_html(o["faqs"]))
     jsonld = [breadcrumb(("Home", "/"), (o["name"], o["url"])), faq_schema(o["faqs"]), local_business(with_catalog=False)]
     return page(o["url"].lstrip("/") + "index.html", title=o["title"], description=o["description"],
-                canonical_path=o["url"], content=content, jsonld=jsonld, body_class="page-occasion")
+                canonical_path=o["url"], content=content, jsonld=jsonld, body_class="page-occasion",
+                lastmod_inputs=("content/occasions.json", "templates/occasion.html"))
+
+def build_404():
+    content = read("templates/404.html")
+    return page("404.html", title="Page not found | Lawn Game Rentals",
+                description="That page isn't here. Find lawn games for hire, event packages and contact details.",
+                canonical_path="/404.html", content=content, jsonld=local_business(with_catalog=False),
+                body_class="page-404", head_extra='<meta name="robots" content="noindex">')
+
+def build_privacy():
+    from datetime import datetime
+    updated = datetime.strptime(git_lastmod("templates/privacy.html"), "%Y-%m-%d").strftime("%-d %B %Y")
+    content = render(read("templates/privacy.html"), updated=updated)
+    return page("privacy/index.html", title="Privacy Notice | Lawn Game Rentals",
+                description="How Lawn Game Rentals collects and uses personal information from enquiries, bookings and website analytics, and your rights under POPIA.",
+                canonical_path="/privacy/", content=content,
+                jsonld=[breadcrumb(("Home", "/"), ("Privacy notice", "/privacy/")), local_business(with_catalog=False)],
+                body_class="page-privacy", lastmod_inputs=("templates/privacy.html",))
 
 def build_sitemap(paths):
     urls = "\n".join(
-        f"  <url>\n    <loc>{BASE_URL}{p}</loc>\n    <lastmod>{TODAY}</lastmod>\n"
+        f"  <url>\n    <loc>{BASE_URL}{p}</loc>\n    <lastmod>{LASTMOD.get(p, TODAY)}</lastmod>\n"
         f"    <changefreq>monthly</changefreq>\n    <priority>{'1.0' if p == '/' else '0.8'}</priority>\n  </url>"
         for p in paths)
     return write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -308,6 +348,8 @@ def main():
         build_game(g); paths.append(g["url"])
     for o in OCCASIONS:
         build_occasion(o); paths.append(o["url"])
+    build_privacy(); paths.append("/privacy/")
+    build_404()   # not in the sitemap: it's noindex and served with a 404 status
     build_sitemap(paths)
     n = sum(1 for p in DIST.rglob("*") if p.is_file())
     print(f"built {len(paths)} page(s), {n} files -> dist/")
