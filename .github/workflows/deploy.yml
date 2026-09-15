@@ -6,7 +6,7 @@
 #   FTP_PASSWORD  its password
 #
 # server-dir is the web root as seen by that FTP account. This account is
-# rooted at public_html already, so it's ./ — using public_html/ here would
+# rooted at public_html already, so it's ./ - using public_html/ here would
 # nest a second public_html inside the first (which is what happened on the
 # first run).
 
