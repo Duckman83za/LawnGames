@@ -1,5 +1,5 @@
 # ==========================================================================
-# Lawn Game Rentals — Apache / cPanel configuration
+# Lawn Game Rentals - Apache / cPanel configuration
 # ==========================================================================
 
 # --- Default document ------------------------------------------------------
@@ -67,7 +67,7 @@ Options -Indexes
 </IfModule>
 
 # --- Compression -----------------------------------------------------------
-# Note: images (webp/png/jpg) are already compressed — deflating them again
+# Note: images (webp/png/jpg) are already compressed - deflating them again
 # wastes CPU and can slightly increase size, so they're deliberately absent.
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml

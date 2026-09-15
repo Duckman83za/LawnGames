@@ -271,7 +271,7 @@
   }
 
   /* Each half is unbreakable, so when the tagline wraps it can only split
-     between "Your" and "Next" — never leaving a single word orphaned. */
+     between "Your" and "Next" - never leaving a single word orphaned. */
   .hero-tagline .nowrap { white-space: nowrap;
     letter-spacing: 1px;
     color: #FFFFFF;

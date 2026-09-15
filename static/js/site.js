@@ -140,7 +140,7 @@
         setStatus('Opening your email app…');
         window.location.href =
           'mailto:shaun@lawngamerentals.co.za' +
-          '?subject=' + encodeURIComponent('Lawn Game Rentals enquiry — ' + f.name.value.trim()) +
+          '?subject=' + encodeURIComponent('Lawn Game Rentals enquiry - ' + f.name.value.trim()) +
           '&body=' + encodeURIComponent(
             'Name: ' + f.name.value.trim() + '\n' +
             'Email: ' + f.email.value.trim() + '\n' +
@@ -163,7 +163,7 @@
       var data = new FormData(form);
       /* Makes "Reply" in the notification email go straight to the visitor. */
       data.append('_replyto', form.elements.email.value.trim());
-      data.append('_subject', 'Lawn Game Rentals enquiry — ' + form.elements.name.value.trim());
+      data.append('_subject', 'Lawn Game Rentals enquiry - ' + form.elements.name.value.trim());
 
       fetch(endpoint, {
         method: 'POST',
@@ -172,7 +172,7 @@
       }).then(function (res) {
         if (res.ok) {
           form.reset();
-          setStatus('Thank you — your enquiry is on its way. We will be in touch within one business day.', 'is-success');
+          setStatus('Thank you - your enquiry is on its way. We will be in touch within one business day.', 'is-success');
           track('generate_lead', { method: 'enquiry_form' });
           return;
         }

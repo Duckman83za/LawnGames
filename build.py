@@ -218,7 +218,7 @@ def build_home():
     return page("index.html",
         title="Lawn Game Hire Pretoria & Johannesburg | Lawn Game Rentals",
         og_title="Giant Lawn Game Hire in Pretoria & Johannesburg | Lawn Game Rentals",
-        description="Hire giant lawn games — cornhole, croquet, 4-in-a-row and more — for weddings, parties and corporate events in Pretoria, Johannesburg and Gauteng.",
+        description="Hire giant lawn games - cornhole, croquet, 4-in-a-row and more - for weddings, parties and corporate events in Pretoria, Johannesburg and Gauteng.",
         canonical_path="/", content=content, jsonld=[local_business(with_catalog=True), faq_schema(FAQ)],
         body_class="page-home", head_extra=head_extra)
 
