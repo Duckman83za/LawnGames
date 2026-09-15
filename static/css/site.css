@@ -1066,3 +1066,18 @@
   .popular-for { font-size: 0.92rem; color: var(--text-muted); margin-top: 1.4rem; }
   .popular-for a { color: var(--forest-green); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold-accent); margin-right: 2px; }
   .popular-for a:hover { color: var(--gold-accent); }
+
+  /* --- SIZE CLASS COLOURS ---
+     Big / Medium / Small are what the packages are built from, so the tag colour
+     is a real aid to choosing. Shades are kept in the site's register: a deep
+     red, a muted blue and the brand gold rather than primary red/blue/yellow. */
+  .size-tag.size-big    { background: #9B2C2C; color: #FFFFFF; }
+  .size-tag.size-medium { background: #2F5D8A; color: #FFFFFF; }
+  .size-tag.size-small  { background: #D9A83A; color: #1F2A23; }
+
+  .subpage-hero .size-tag { position: static; display: inline-block; margin-right: 10px; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: none; }
+
+  .size-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin: 0 5px 0 1px; vertical-align: 0; }
+  .size-dot.size-big    { background: #9B2C2C; }
+  .size-dot.size-medium { background: #2F5D8A; }
+  .size-dot.size-small  { background: #D9A83A; }

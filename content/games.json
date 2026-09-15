@@ -82,6 +82,10 @@
       [
         "Can it be played indoors?",
         "Yes. The boards sit flat on any floor, and the bean bags won't damage anything."
+      ],
+      [
+        "Will cornhole fcornhole in a standard car boot or back seat?",
+        "Usually not - the cornhole set is full-size. Check your boot or back-seat space before choosing collection, or let us deliver."
       ]
     ]
   },
@@ -148,7 +152,7 @@
       "The board stands on its own on any flat surface, and the chips release with a slide of the bottom bar for an instant reset."
     ],
     "players": "2 at a time, with a crowd watching",
-    "ages": "4 and up",
+    "ages": "6 and up standing; younger children can play with the board laid flat on the ground",
     "space": "About 1 × 1.5 m - it's freestanding",
     "surface": "Any flat surface, indoors or out.",
     "duration": "3 to 5 minutes per game",
@@ -167,7 +171,11 @@
       ],
       [
         "Is it suitable for young children?",
-        "One of the best games for them - the rules take ten seconds to explain, and the chips are large enough for small hands."
+        "On its legs the top row is a stretch for little arms. Lay the board flat on the lawn and children from about four can play comfortably - the rules take ten seconds to explain."
+      ],
+      [
+        "Will Giant 4 in a Row fGiant 4 in a Row in a standard car boot or back seat?",
+        "Usually not - the board is full-size. Check your boot or back-seat space before choosing collection, or let us deliver."
       ]
     ]
   },
@@ -353,14 +361,14 @@
     "name": "Lawn Darts",
     "price": 150,
     "blurb": "Aerodynamically stable darts thrown over a distance into target rings to score points.",
-    "includes": "Carry case with 4 lawn darts and 3 scoring rings.",
+    "includes": "Carry case with 4 lawn darts and 2 scoring rings.",
     "page": "lawn-darts",
     "common": "garden darts",
     "title": "Lawn Darts Hire | Pretoria & Johannesburg",
-    "description": "Hire a lawn darts set with four weighted darts and three scoring rings for garden events in Pretoria, Johannesburg and Gauteng. R150 plus deposit.",
+    "description": "Hire a lawn darts set with four weighted darts and two scoring rings for garden events in Pretoria, Johannesburg and Gauteng. R150 plus deposit.",
     "intro": [
       "Lawn darts is a gentle underarm throwing game: lob the large, finned darts so they land inside the scoring rings laid out on the grass. It's easy for anyone to try, quick to set up, and takes almost no space.",
-      "The set comes in a carry case with four lawn darts and three scoring rings."
+      "The set comes in a carry case with four lawn darts and two scoring rings."
     ],
     "players": "2 or 4",
     "ages": "6 and up",
@@ -371,7 +379,7 @@
     "rules": [
       "Lay the scoring rings on the grass 5 to 8 metres from the throwing line.",
       "Take turns lobbing your darts underarm so they arc up and land point-first.",
-      "Score by the ring the dart lands in - the smallest ring scores most.",
+      "Score by the ring the dart lands in - the smaller ring scores more.",
       "Darts that land outside all rings score nothing.",
       "First to 21 points wins."
     ],

@@ -147,6 +147,8 @@ def local_business(with_catalog):
         "areaServed": [{"@type": "City", "name": c} for c in ("Pretoria", "Johannesburg", "Centurion", "Midrand")]
                       + [{"@type": "AdministrativeArea", "name": "Gauteng"}],
         "address": {"@type": "PostalAddress", "addressRegion": "Gauteng", "addressCountry": "ZA"},
+        "hasMap": "https://maps.app.goo.gl/gxFaD2FrMFXtYHH38",
+        "sameAs": ["https://maps.app.goo.gl/gxFaD2FrMFXtYHH38"],
     }
     if with_catalog:
         lb["hasOfferCatalog"] = {"@type": "OfferCatalog", "name": "Lawn Game Hire", "itemListElement": [
@@ -173,7 +175,7 @@ def related_cards(games):
     return "\n".join(
         f'        <a class="related-card" href="{o["url"]}">'
         f'<img src="/{o["image"]}-400.webp" alt="" width="400" height="{round(400 * o["img_h"] / o["img_w"])}" loading="lazy">'
-        f'<div><strong>{esc(o["name"])}</strong><span>R{o["price"]} · {o["size"].split()[0]}</span></div></a>'
+        f'<div><strong>{esc(o["name"])}</strong><span>R{o["price"]} · <em class="size-dot size-{o["size"].split()[0].lower()}"></em>{o["size"].split()[0]}</span></div></a>'
         for o in games)
 
 CHEVRON = ('<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
@@ -220,7 +222,7 @@ def build_home():
         cards.append(f'''
         <div class="game-card">
           <div class="game-img-placeholder">
-            <span class="size-tag">{g["size"]}</span>
+            <span class="size-tag size-{g["size"].split()[0].lower()}">{g["size"]}</span>
             {picture(g, sizes="(max-width: 600px) 100vw, 380px")}
           </div>
           <div class="game-content">
