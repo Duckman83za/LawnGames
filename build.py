@@ -96,13 +96,21 @@ for g in GAMES:
 for o in OCCASIONS:
     o["url"] = f"/{o['slug']}/"
 
-def offer(name, desc, price, image=None, url=None):
-    item = {"@type": "Product", "name": name, "description": desc}
+def product(name, desc, price, image=None, url=None):
+    """A Product with its own offers - Google's Product validator requires
+    offers, review or aggregateRating on every Product it finds, so the
+    catalogue lists Products (each holding an Offer), not Offers wrapping Products."""
+    item = {"@type": "Product", "name": name, "description": desc,
+            "brand": {"@type": "Brand", "name": "Lawn Game Rentals"},
+            "offers": {"@type": "Offer", "price": str(price), "priceCurrency": "ZAR",
+                       "availability": "https://schema.org/InStock",
+                       "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut",
+                       "seller": {"@id": BASE_URL + "/#business"}}}
     if image: item["image"] = BASE_URL + image
-    if url: item["url"] = BASE_URL + url
-    return {"@type": "Offer", "itemOffered": item, "price": str(price), "priceCurrency": "ZAR",
-            "availability": "https://schema.org/InStock",
-            "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut"}
+    if url:
+        item["url"] = BASE_URL + url
+        item["offers"]["url"] = BASE_URL + url
+    return item
 
 def local_business(with_catalog):
     lb = {
@@ -125,9 +133,9 @@ def local_business(with_catalog):
     if with_catalog:
         lb["hasOfferCatalog"] = {"@type": "OfferCatalog", "name": "Lawn Game Hire", "itemListElement": [
             {"@type": "OfferCatalog", "name": "Individual Games",
-             "itemListElement": [offer(g["name"], g["blurb"], g["price"], "/" + g["image"] + ".webp", g["url"]) for g in GAMES]},
+             "itemListElement": [product(g["name"], g["blurb"], g["price"], "/" + g["image"] + ".webp", g["url"]) for g in GAMES]},
             {"@type": "OfferCatalog", "name": "Event Packages",
-             "itemListElement": [offer(f"Event Package {n}", ", ".join(items) + ". Includes a free custom WhatsApp invitation.", p)
+             "itemListElement": [product(f"Event Package {n}", ", ".join(items) + ". Includes a free custom WhatsApp invitation.", p, url="/#packages")
                                  for n, p, items in PACKAGES]},
         ]}
     return lb
