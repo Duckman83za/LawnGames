@@ -5,9 +5,10 @@
 #   FTP_USERNAME  the cPanel FTP account
 #   FTP_PASSWORD  its password
 #
-# server-dir must be the web root as seen by that FTP account. For the main
-# cPanel account that is public_html/; for an FTP account created with
-# public_html as its home directory it is ./ instead.
+# server-dir is the web root as seen by that FTP account. This account is
+# rooted at public_html already, so it's ./ — using public_html/ here would
+# nest a second public_html inside the first (which is what happened on the
+# first run).
 
 name: Deploy to cPanel
 
@@ -38,7 +39,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps            # explicit TLS on port 21; change to ftp only if the host refuses it
           local-dir: dist/
-          server-dir: public_html/
+          server-dir: ./
           # Only changed files are uploaded; the action keeps a small state
           # file on the server to know what's already there.
           state-name: .ftp-deploy-sync-state.json
