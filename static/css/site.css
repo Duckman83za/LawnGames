@@ -1029,8 +1029,9 @@
   /* --- OCCASIONS (home) --- */
   .occasions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-    gap: clamp(20px, 3vw, 36px);
+    /* Sized so four occasion cards fit one row inside the 1200px container. */
+    grid-template-columns: repeat(auto-fit, minmax(min(245px, 100%), 1fr));
+    gap: clamp(20px, 2.5vw, 30px);
   }
   .occasion-card {
     display: block;

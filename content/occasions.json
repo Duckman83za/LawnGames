@@ -145,5 +145,54 @@
       "boules",
       "hightower"
     ]
+  },
+  {
+    "slug": "bachelor-bachelorette-party-games",
+    "name": "Bachelor & bachelorette parties",
+    "short": "Bachelorette & bachelor party games",
+    "title": "Bachelorette & Bachelor Party Games Hire | Pretoria & Johannesburg",
+    "h1": "Lawn games for bachelorette, bachelor and kitchen tea parties",
+    "description": "Hire giant lawn games for a bachelorette, hen, kitchen tea, stag or bachelor party in Pretoria, Johannesburg or Gauteng. Sociable, photo-friendly games for a garden or picnic day.",
+    "lead": "A bachelorette picnic, a kitchen tea on the lawn, a stag braai - the daytime version of the send-off works best when there's something to do besides talk. A few giant games on the grass give the group a focus, get the quieter friends involved, and produce the photos everyone actually wants from the day.",
+    "sections": [
+      [
+        "Games that suit a hen or bachelorette day",
+        "The winners here are the ones that photograph well and get a crowd cheering. <a href=\"/games/high-tower/\">High Tower</a> - our giant Jenga - is the centrepiece: the moment it falls is the picture of the day. <a href=\"/games/giant-4-in-a-row/\">Giant 4 in a Row</a> runs as a quick knockout between friends. <a href=\"/games/boules/\">Boules</a> and <a href=\"/games/quoits/\">quoits</a> are easy with a glass in hand. For a kitchen tea with mixed ages, <a href=\"/games/giant-dominoes/\">giant dominoes</a> and <a href=\"/games/giant-noughts-and-crosses/\">noughts and crosses</a> keep everyone from grandmothers to flower girls playing."
+      ],
+      [
+        "Games that suit a stag or bachelor braai",
+        "Go for the competitive ones. <a href=\"/games/cornhole/\">Cornhole</a> and <a href=\"/games/horseshoe-throwing/\">horseshoe throwing</a> both have a knack that rewards practice and invites a wager. <a href=\"/games/high-tower/\">High Tower</a> gets more nerve-wracking as the afternoon goes on. A simple bracket on a whiteboard turns three games into a tournament that fills the gap between the braai lighting and the meat being ready."
+      ],
+      [
+        "How many games for the group",
+        "Most send-offs are 10 to 20 people, which is comfortably covered by two or three games. Our <a href=\"/#packages\">Option 4 package</a> - one Big, one Medium and one Small game - is sized for exactly this and includes a custom WhatsApp invitation to send round the group. For a bigger crowd or a full-day event, Option 3 adds two more."
+      ],
+      [
+        "Where and when",
+        "The games work in a back garden, at a picnic spot or at an Airbnb with a lawn, and most of them are fine on a patio if the grass is small. We deliver across Pretoria, Johannesburg, Centurion, Midrand and surrounding areas the day before and collect the day after, so the organiser isn't waiting on a delivery on the morning. Everything packs into carry bags and cases, so it also travels to a venue in the boot of a car."
+      ]
+    ],
+    "faqs": [
+      [
+        "Which games work best for a bachelorette or kitchen tea?",
+        "High Tower for the photos, Giant 4 in a Row for a quick tournament, and boules or quoits for anyone who'd rather play with a drink in hand. For a kitchen tea with older relatives, add giant dominoes."
+      ],
+      [
+        "Can we take the games to a picnic spot or Airbnb?",
+        "Yes. Every game packs into a carry bag or case that fits in a car. The one thing to check is that the venue has a patch of flat lawn or paving."
+      ],
+      [
+        "Is there a smaller package for a group of ten?",
+        "Option 4 - one Big, one Medium and one Small game at R800 - is the usual choice for 10 to 20 people. You can also hire any single game from R150."
+      ]
+    ],
+    "games": [
+      "hightower",
+      "giant4inarow",
+      "cornhole",
+      "boules",
+      "quoits",
+      "horseshoetrow"
+    ]
   }
 ]
