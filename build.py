@@ -155,7 +155,8 @@ def local_business(with_catalog):
             {"@type": "OfferCatalog", "name": "Individual Games",
              "itemListElement": [product(g["name"], g["blurb"], g["price"], "/" + g["image"] + ".webp", g["url"]) for g in GAMES]},
             {"@type": "OfferCatalog", "name": "Event Packages",
-             "itemListElement": [product(f"Event Package {n}", ", ".join(items) + ". Includes a free custom WhatsApp invitation.", p, url="/#packages")
+             "itemListElement": [product(f"Event Package {n}", ", ".join(items) + ". Includes a free custom WhatsApp invitation.", p,
+                                         image="/images/og-image.jpg", url="/#packages")
                                  for n, p, items in PACKAGES]},
         ]}
     return lb
